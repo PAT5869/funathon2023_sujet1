@@ -101,12 +101,15 @@ Pour s'amuser avec les données, afficher le tableau des surfaces de votre canto
 #| warning: false
 
 mon_canton <- surfaces_ra1852 %>% 
-  filter(canton == "TOULOUSE") %>% ### Changer ici avec votre canton
+  filter(canton == "DOUAI") %>% ### Changer ici avec votre canton
   pivot_longer(-c(code, canton, departement)) %>% 
   select(-c(code, canton, departement)) %>% 
   print()
 ```
-
+```{r}
+verif<-surfaces_ra1852 %>% 
+  mutate(test_TL=total_des_terres_labourables - jacheres - prairies_artificielles -cultures_diverses -racines_et_legumes_divers - cereales)
+```
 Alors quelle est le type de terre labourable la plus étendue ? Chez nous ce sont les céréales.   
 Avez-vous un peu de vigne ?
 
